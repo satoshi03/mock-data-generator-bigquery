@@ -1,0 +1,17 @@
+[
+    {
+        "name": "hogehoge",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "pokopoko",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+    }
+]
