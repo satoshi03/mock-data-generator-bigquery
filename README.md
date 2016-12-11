@@ -31,9 +31,21 @@ cat output.json
 |-o|output file name|output.json|
 |-l|number of lines(rows) of dummy file|1000|
 
+
+## Json Schema file
+
+Json schema file for BigQuery defines field name, data type and mode.
+
+|attribute|description|remark|
+|:---|:---|:---|
+|name|field name||
+|type|data type|INTEGER, STRING, FLOAT, TIMESTAMP, RECORD is supported|
+|mode|write mode|REQUIRED, NULLABLE, REPEATED is supported|
+
+
 ## Examples
 
-examples/flat.json
+BigQuery schema file (examples/flat.json)
 
 ```json
 [
