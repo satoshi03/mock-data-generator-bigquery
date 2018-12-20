@@ -53,20 +53,20 @@ def mockdata(t):
 def generate(schema):
     dic = {}
     for column in schema:
-        if column['MODE'] == 'REPEAT':
-            if column['TYPE'] == 'RECORD':
-                dic[column['NAME']] = [generate(column['FIELDS']) for i in range(0, random.randrange(MAX_REPEAT_NUM) + 1)]
+        if column['mode'] == 'REPEAT':
+            if column['type'] == 'RECORD':
+                dic[column['name']] = [generate(column['FIELDS']) for i in range(0, random.randrange(MAX_REPEAT_NUM) + 1)]
             else:
-                dic[column['NAME']] = [mockdata(column['TYPE']) for i in range(0, random.randrange(MAX_REPEAT_NUM) + 1)]
+                dic[column['name']] = [mockdata(column['type']) for i in range(0, random.randrange(MAX_REPEAT_NUM) + 1)]
         else:
-            if column['MODE'] == 'NULLABLE':
+            if column['mode'] == 'NULLABLE':
                 if random.randint(0, 1):
                     continue
 
-            if column['TYPE'] == 'RECORD':
-                dic[column['NAME']] = generate(column['FIELDS'])
+            if column['type'] == 'RECORD':
+                dic[column['name']] = generate(column['FIELDS'])
             else:
-                dic[column['NAME']] = mockdata(column['TYPE'])
+                dic[column['name']] = mockdata(column['type'])
     return dic
 
 
@@ -78,7 +78,7 @@ def to_upper(schema):
             if isinstance(k, str):
                 k = k.upper()
             if isinstance(v, str):
-                if k != 'NAME':
+                if k != 'name':
                     v = v.upper()
             if isinstance(v, list):
                 v = to_upper(v)
