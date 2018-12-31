@@ -6,6 +6,7 @@ import random
 import string
 from datetime import datetime as dt
 from datetime import timedelta
+from six import string_types
 
 
 parser = argparse.ArgumentParser(description="generate mock data for BigQuery.")
@@ -75,9 +76,9 @@ def to_upper(schema):
     for column in schema:
         d = {}
         for k, v in column.items():
-            if isinstance(k, str):
+            if isinstance(k, string_types):
                 k = k.upper()
-            if isinstance(v, str):
+            if isinstance(v, string_types):
                 if k != 'NAME':
                     v = v.upper()
             if isinstance(v, list):
