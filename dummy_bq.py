@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(description="generate mock data for BigQuery.")
 parser.add_argument('input', metavar='FILE', help='input schema file.')
 parser.add_argument('-l', metavar='-l', type=int, default=1000, help='output mock data raws. (default: 1000)')
 parser.add_argument('-o', metavar='-o', default='output.json', help='output mock data file. (default: output.json)')
-parser.add_argument('-t', metavar='-t', default='bigquery', help='the type of the input file. (default: output.json)')
+parser.add_argument('-t', metavar='-t', default='bigquery', help='the type of the input file. (default: bigquery)')
 
 TIMESTAMP_FORMAT = '%Y-%m-%d %H:%M:%S'
 
@@ -40,7 +40,6 @@ def random_timestamp(start, end):
 
 
 def mockdata(t):
-    # print(t)
     if t == 'STRING':
         return random_str()
     elif t == 'FLOAT64':
@@ -104,7 +103,8 @@ if __name__ == "__main__":
             for l in range(0, args.l):
                 output_json_file.write(json.dumps(generate(schema)) + '\n')
         else:
-            header = ",".join([line.split(" ")[0] for line in input_json_file])
+            lines = input_json_file.readlines()
+            header = ",".join([line.split(" ")[0] for line in lines])
             output_json_file.write(header + '\n')
             for i in range(0, args.l):
-                output_json_file.write(",".join([str(mockdata(line.split(" ")[1].strip())) for line in input_json_file]) + '\n')
+                output_json_file.write(",".join([str(mockdata(line.split(" ")[1].strip())) for line in lines]) + '\n')
