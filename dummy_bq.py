@@ -13,6 +13,7 @@ parser = argparse.ArgumentParser(description="generate mock data for BigQuery.")
 parser.add_argument('input', metavar='FILE', help='input schema file.')
 parser.add_argument('-l', metavar='-l', type=int, default=1000, help='output mock data raws. (default: 1000)')
 parser.add_argument('-o', metavar='-o', default='output.json', help='output mock data file. (default: output.json)')
+parser.add_argument('-t', metavar='-t', default='bigquery', help='the type of the input file. (default: output.json)')
 
 TIMESTAMP_FORMAT = '%Y-%m-%d %H:%M:%S'
 
@@ -39,8 +40,13 @@ def random_timestamp(start, end):
 
 
 def mockdata(t):
+    # print(t)
     if t == 'STRING':
         return random_str()
+    elif t == 'FLOAT64':
+        return random.uniform(DUMMY_RAND_FLOAD_MIN, DUMMY_RAND_FLOAT_MIN)
+    elif t == 'INT64':
+        return random.randint(DUMMY_RAND_INT_MIN, DUMMY_RAND_INT_MAX)
     elif t == 'INTEGER':
         return random.randint(DUMMY_RAND_INT_MIN, DUMMY_RAND_INT_MAX)
     elif t == 'FLOAT':
@@ -49,6 +55,8 @@ def mockdata(t):
         return random_timestamp(DUMMY_RAND_TIMESTAMP_MIN, DUMMY_RAND_TIMESTAMP_MAX)
     elif t == 'BOOLEAN':
         return bool(random.getrandbits(1))
+    else:
+        print("not found type: " + t)
 
 
 def generate(schema):
@@ -90,7 +98,13 @@ def to_upper(schema):
 
 if __name__ == "__main__":
     args = parser.parse_args()
-    with open(args.input, 'r') as ijf, open(args.o, 'w') as ojf:
-        schema = to_upper(json.load(ijf))
-        for l in range(0, args.l):
-            ojf.write(json.dumps(generate(schema)) + '\n')
+    with open(args.input, 'r') as input_json_file, open(args.o, 'w') as output_json_file:
+        if args.t != 'bigquery':
+            schema = to_upper(json.load(input_json_file))
+            for l in range(0, args.l):
+                output_json_file.write(json.dumps(generate(schema)) + '\n')
+        else:
+            header = ",".join([line.split(" ")[0] for line in input_json_file])
+            output_json_file.write(header + '\n')
+            for i in range(0, args.l):
+                output_json_file.write(",".join([str(mockdata(line.split(" ")[1].strip())) for line in input_json_file]) + '\n')

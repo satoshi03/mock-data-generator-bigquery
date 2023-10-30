@@ -71,7 +71,7 @@ BigQuery schema file (examples/flat.json)
 Generate 10 lines dummy data to output.json
 
 ```
-python dummy_bq.py examples/flat.json -l 10
+python dummy_bq.py example/flat.json -l 10 -t flat
 ```
 
 ```json

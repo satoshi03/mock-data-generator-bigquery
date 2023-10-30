@@ -1,17 +1,242 @@
 [
-    {
-        "name": "hogehoge",
-        "type": "INTEGER",
-        "mode": "REQUIRED"
-    },
-    {
-        "name": "pokopoko",
-        "type": "STRING",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "created_at",
-        "type": "TIMESTAMP",
-        "mode": "REQUIRED"
-    }
+  {
+      "name": "account_id",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_chat",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_cti_phone_in",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_cti_phone_out",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_cti_voicemail",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_dropbox",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_facebook_msg",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_facebook_post",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_followup",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_lotus",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_mail",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_mobile_app",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_mobile_sdk",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_other",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_phone_in",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_phone_out",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_sms",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_whatsapp",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_wechat",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_line",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_sunco_whatsapp",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_sunco_wechat",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_sunco_line",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_native_messaging",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_mailgun",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_messagebird_sms",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_sunco_facebook_messenger",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_telegram",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_twilio_sms",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_viber",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_google_rcs",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_apple_business_chat",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_google_business_messages",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_channel_kakaotalk",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_channel_instagram_dm",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_channel_sunco_api",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_channel_sunco_twitter_dm",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_ticket_incident",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_ticket_other",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_ticket_problem",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_ticket_question",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_ticket_task",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_ticket_total",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "run_id",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "run_at",
+      "type": "TIMESTAMP",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "shard_id",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "new_channel_business_messaging_slack_connect",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  },
+  {
+      "name": "solved_channel_business_messaging_slack_connect",
+      "type": "INT64",
+      "mode": "REQUIRED"
+  }
 ]
